@@ -14,30 +14,30 @@ import io.sixth.imgur9000.util.Constants;
  */
 public class Imgur {
     private final String API = "https://api.imgur.com/3/";
-    private String apiCall;
+    private StringBuilder apiCall;
     private static Bus bus = BusProvider.getInstance();
 
     public Imgur() {
-        apiCall = API;
+        apiCall = new StringBuilder(API);
     }
 
     public Imgur gallery () {
-        apiCall = apiCall.concat("gallery/");
+        apiCall.append("gallery/");
         return this;
     }
 
     public Imgur reddit (String subreddit) {
-        apiCall = apiCall.concat("r/"+subreddit);
+        apiCall.append("r/").append(subreddit);
         return this;
     }
 
     public Imgur defaultView() {
-        apiCall = apiCall.concat("hot/viral/0.json");
+        apiCall = apiCall.append("hot/viral/0.json");
         return this;
     }
 
     public String getUrl() {
-        return this.apiCall;
+        return this.apiCall.toString();
     }
 
     public static void loadDefaultGallery() {

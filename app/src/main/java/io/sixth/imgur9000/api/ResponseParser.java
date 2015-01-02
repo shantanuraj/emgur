@@ -10,6 +10,7 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.sixth.imgur9000.util.App;
 import io.sixth.imgur9000.util.BusProvider;
 
 /**
@@ -32,7 +33,7 @@ public class ResponseParser {
             response = gson.fromJson(result, ImgurResponse.class);
             parseResponse(response);
         } catch (Exception e) {
-            Log.d("FOOMAN", "DATA NF");
+            Log.d(App.TAG, "DATA NF");
         }
     }
 

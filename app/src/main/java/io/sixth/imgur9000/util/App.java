@@ -8,7 +8,7 @@ import android.content.Context;
  */
 public class App extends Application {
 
-    private static final String TAG = App.class.getSimpleName();
+    public static final String TAG = App.class.getSimpleName();
     private static Context context;
 
     @Override
