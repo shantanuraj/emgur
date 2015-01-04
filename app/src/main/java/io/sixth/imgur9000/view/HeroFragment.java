@@ -2,6 +2,7 @@ package io.sixth.imgur9000.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,7 +45,7 @@ public class HeroFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         bus.register(this);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(App.getAppContext());
+        mLayoutManager = new GridLayoutManager(App.getAppContext(), 1);
         mRecyclerView.setLayoutManager(mLayoutManager);
         return rootView;
     }
