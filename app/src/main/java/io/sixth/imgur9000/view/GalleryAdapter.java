@@ -34,7 +34,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
     @Override
     public void onBindViewHolder(CardViewHolder viewHolder, final int position) {
         Log.d(App.TAG, "Element " + position + " set.");
-        viewHolder.getTextView().setText(mDataSet.get(position));
+        viewHolder.getCardTitle().setText(mDataSet.get(position));
     }
 
     @Override

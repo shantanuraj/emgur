@@ -3,6 +3,7 @@ package io.sixth.imgur9000.view;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import io.sixth.imgur9000.R;
@@ -12,7 +13,8 @@ import io.sixth.imgur9000.util.App;
  * Created by walle on 04/01/15.
  */
 public class CardViewHolder extends RecyclerView.ViewHolder {
-    private final TextView textView;
+    private final TextView cardTitle;
+    private final ImageView cardBackground;
 
     public CardViewHolder(View v) {
         super(v);
@@ -22,10 +24,15 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
                 Log.d(App.TAG, "Element " + getPosition() + " clicked.");
             }
         });
-        textView = (TextView) v.findViewById(R.id.imageTitle);
+        cardTitle = (TextView) v.findViewById(R.id.cardTitle);
+        cardBackground = (ImageView) v.findViewById(R.id.cardBackground);
     }
 
-    public TextView getTextView() {
-        return textView;
+    public TextView getCardTitle() {
+        return cardTitle;
+    }
+
+    public ImageView getCardBackground() {
+        return cardBackground;
     }
 }

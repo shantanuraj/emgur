@@ -27,8 +27,13 @@
         android:layout_height="match_parent"
         android:id="@+id/imgurCard"
         card_view:cardBackgroundColor="@color/cardview_dark_background">
+        <ImageView
+            android:id="@+id/cardBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher"/>
         <TextView
-            android:id="@+id/imageTitle"
+            android:id="@+id/cardTitle"
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginRight="@dimen/text_margin"
             android:layout_marginBottom="@dimen/text_margin"
