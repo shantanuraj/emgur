@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import io.sixth.imgur9000.R;
@@ -36,6 +38,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
     public void onBindViewHolder(CardViewHolder viewHolder, final int position) {
         Log.d(App.TAG, "Element " + position + " set.");
         viewHolder.getCardTitle().setText(mDataSet.get(position).getTitle());
+        Picasso.with(App.getAppContext()).load(mDataSet.get(position).getLink()).into(viewHolder.getCardBackground());
+        Log.d(App.TAG, mDataSet.get(position).getThumbnail('m'));
     }
 
     @Override
