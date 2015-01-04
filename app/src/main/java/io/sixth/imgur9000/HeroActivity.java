@@ -1,8 +1,8 @@
 package io.sixth.imgur9000;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +17,8 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import io.sixth.imgur9000.api.ImgurData;
-import io.sixth.imgur9000.api.ResponseParser;
 import io.sixth.imgur9000.api.Imgur;
+import io.sixth.imgur9000.api.ImgurData;
 import io.sixth.imgur9000.util.App;
 import io.sixth.imgur9000.util.BusProvider;
 
@@ -27,14 +26,12 @@ import io.sixth.imgur9000.util.BusProvider;
 public class HeroActivity extends ActionBarActivity {
 
     private static Bus bus;
-    private static ResponseParser responseParser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         bus = BusProvider.getInstance();
-        responseParser = new ResponseParser();
 
         setContentView(R.layout.activity_hero);
         if (savedInstanceState == null) {
