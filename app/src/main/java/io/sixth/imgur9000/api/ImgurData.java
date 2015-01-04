@@ -166,4 +166,13 @@ public class ImgurData {
     public void setVote(String vote){
         this.vote = vote;
     }
+
+    //Custom methods
+    public String getThumbnail(char size) {
+        //Check http://api.imgur.com/models/image
+        int lastDot = this.link.lastIndexOf('.');
+        String prefix = this.link.substring(0, lastDot);
+        String suffix = this.link.substring(lastDot, this.link.length());
+        return prefix + size + suffix;
+    }
 }

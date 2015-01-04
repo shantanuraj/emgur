@@ -13,13 +13,14 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import io.sixth.imgur9000.R;
+import io.sixth.imgur9000.api.ImgurData;
 import io.sixth.imgur9000.util.App;
 
 public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
-    private ArrayList<String> mDataSet;
+    private ArrayList<ImgurData> mDataSet;
 
-    public GalleryAdapter(ArrayList<String> dataSet) {
+    public GalleryAdapter(ArrayList<ImgurData> dataSet) {
         mDataSet = dataSet;
     }
 
@@ -34,7 +35,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
     @Override
     public void onBindViewHolder(CardViewHolder viewHolder, final int position) {
         Log.d(App.TAG, "Element " + position + " set.");
-        viewHolder.getCardTitle().setText(mDataSet.get(position));
+        viewHolder.getCardTitle().setText(mDataSet.get(position).getTitle());
     }
 
     @Override
