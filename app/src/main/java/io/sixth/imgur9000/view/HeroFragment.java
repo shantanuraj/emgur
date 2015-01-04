@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import io.sixth.imgur9000.R;
-import io.sixth.imgur9000.api.ImgurData;
 import io.sixth.imgur9000.util.App;
 import io.sixth.imgur9000.util.BusProvider;
 
@@ -29,7 +28,6 @@ public class HeroFragment extends Fragment {
 
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private String[] mDataset;
 
     public HeroFragment() {
         bus = BusProvider.getInstance();
@@ -51,19 +49,9 @@ public class HeroFragment extends Fragment {
     }
 
     @Subscribe
-    public void displayResponse(ArrayList<ImgurData> images) {
-//        ImgurData image = images.get(0);
-//        Picasso.with(App.getAppContext()).load(image.getLink()).into(imageView);
-        initDataset();
-        mAdapter = new GalleryAdapter(mDataset);
+    public void displayResponse(ArrayList<String> images) {
+        mAdapter = new GalleryAdapter(images);
         mRecyclerView.setAdapter(mAdapter);
-    }
-
-    private void initDataset() {
-        mDataset = new String[20];
-        for (int i = 0; i < 20; ++i) {
-            mDataset[i] = "Random text suffices: " +  (i + 1);
-        }
     }
 
 }

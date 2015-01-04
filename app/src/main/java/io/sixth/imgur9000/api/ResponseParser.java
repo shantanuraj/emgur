@@ -39,10 +39,12 @@ public class ResponseParser {
 
     private void parseResponse(ImgurResponse response) {
         List<ImgurData> list = response.getData();
-        ArrayList<ImgurData> images = new ArrayList<>();
+//        ArrayList<ImgurData> images = new ArrayList<>();
+        ArrayList<String> images = new ArrayList<>();
         for (ImgurData image : list) {
-            if (!image.isAlbum())
-                images.add(image);
+            if (!image.isAlbum()) {
+                images.add(image.getTitle());
+            }
         }
         bus.post(images);
     }
