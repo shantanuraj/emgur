@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import io.sixth.imgur9000.R;
+import io.sixth.imgur9000.api.Imgur;
 import io.sixth.imgur9000.api.ImgurData;
 import io.sixth.imgur9000.util.App;
 
@@ -38,7 +39,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
     public void onBindViewHolder(CardViewHolder viewHolder, final int position) {
         Log.d(App.TAG, "Element " + position + " set.");
         viewHolder.getCardTitle().setText(mDataSet.get(position).getTitle());
-        Picasso.with(App.getAppContext()).load(mDataSet.get(position).getThumbnail('m')).into(viewHolder.getCardBackground());
+        Picasso.with(App.getAppContext())
+                .load(mDataSet.get(position).getThumbnail(Imgur.THUMBNAIL_LARGE))
+                .into(viewHolder.getCardBackground());
     }
 
     @Override

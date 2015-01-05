@@ -17,6 +17,13 @@ public class Imgur {
     private StringBuilder apiCall;
     private static Bus bus = BusProvider.getInstance();
 
+    public static final char THUMBNAIL_SMALL  = 's';
+    public static final char THUMBNAIL_BIG    = 't';
+    public static final char THUMBNAIL_MEDIUM = 'm';
+    public static final char THUMBNAIL_LARGE  = 'l';
+    public static final char THUMBNAIL_HUGE   = 'h';
+
+
     public Imgur() {
         apiCall = new StringBuilder(API);
     }
