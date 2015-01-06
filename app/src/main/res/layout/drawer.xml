@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<io.sixth.imgur9000.ScrimInsetsFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrimInsetsFrameLayout"
     android:layout_width="@dimen/drawer_width"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="@android:color/transparent">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/material_grey_100"
-        android:text="@string/login"
-        android:textSize="@dimen/drawer_text"
-        android:fontFamily="sans-serif-thin"
-        android:textColor="@color/button_fab"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/loginButton"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/material_grey_100"
-        android:text="@string/logout"
-        android:textSize="@dimen/drawer_text"
-        android:fontFamily="sans-serif-thin"
-        android:textColor="@color/button_fab"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/logoutButton"/>
-</RelativeLayout>
+    android:background="@color/material_grey_100"
+    android:elevation="10dp"
+    android:fitsSystemWindows="true"
+    app:insetForeground="#4000">
+
+    <RelativeLayout
+
+        android:layout_width="@dimen/drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/material_grey_100"
+            android:text="@string/login"
+            android:textSize="@dimen/drawer_text"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="@color/button_fab"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/loginButton"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/material_grey_100"
+            android:text="@string/logout"
+            android:textSize="@dimen/drawer_text"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="@color/button_fab"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/logoutButton"/>
+    </RelativeLayout>
+
+</io.sixth.imgur9000.ScrimInsetsFrameLayout>
