@@ -37,11 +37,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
     @Override
     public void onBindViewHolder(CardViewHolder viewHolder, final int position) {
-        Log.d(App.TAG, "Element " + position + " set.");
-        viewHolder.getCardTitle().setText(mDataSet.get(position).getTitle());
         Picasso.with(App.getAppContext())
                 .load(mDataSet.get(position).getThumbnail(Imgur.THUMBNAIL_LARGE))
                 .into(viewHolder.getCardBackground());
+
+        Log.d(App.TAG, "Element " + position + " set.");
+        viewHolder.getCardTitle().setText(mDataSet.get(position).getTitle());
+        viewHolder.setImgurData(mDataSet.get(position));
     }
 
     @Override

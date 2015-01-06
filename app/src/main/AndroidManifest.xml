@@ -22,6 +22,8 @@
         </activity>
         
         <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".view.DetailActivity"
+                  android:parentActivityName=".view.HeroActivity"/>
     </application>
 
 </manifest>
