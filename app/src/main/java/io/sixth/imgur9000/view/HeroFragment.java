@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import io.sixth.imgur9000.R;
+import io.sixth.imgur9000.api.Imgur;
 import io.sixth.imgur9000.api.ImgurData;
 import io.sixth.imgur9000.util.App;
 import io.sixth.imgur9000.util.BusProvider;

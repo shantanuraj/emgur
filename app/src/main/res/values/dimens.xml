@@ -6,8 +6,6 @@
     <dimen name="card_bottom">4dp</dimen>
     <dimen name="card_height">300dp</dimen>
     <dimen name="drawer_width">260dp</dimen>
-    <dimen name="drawer_text">36dp</dimen>
-    <dimen name="banner_large">200dp</dimen>
-    <dimen name="banner_text">72sp</dimen>
+    <dimen name="drawer_text">36sp</dimen>
     <dimen name="button_text">36sp</dimen>
 </resources>

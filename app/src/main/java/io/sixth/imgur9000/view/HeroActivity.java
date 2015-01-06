@@ -2,9 +2,10 @@ package io.sixth.imgur9000.view;
 
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.nispok.snackbar.Snackbar;
 import com.squareup.otto.Bus;
@@ -12,8 +13,10 @@ import com.squareup.otto.Subscribe;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import io.sixth.imgur9000.R;
 import io.sixth.imgur9000.api.Imgur;
+import io.sixth.imgur9000.login.ImgurAuthorization;
 import io.sixth.imgur9000.util.App;
 import io.sixth.imgur9000.util.BaseActivity;
 import io.sixth.imgur9000.util.BusProvider;
@@ -21,21 +24,22 @@ import io.sixth.imgur9000.util.BusProvider;
 
 public class HeroActivity extends BaseActivity {
 
-    private static Bus bus;
+    private static Bus bus = BusProvider.getInstance();
 
     @InjectView(R.id.drawer) protected DrawerLayout mDrawer;
+    @InjectView(R.id.logoutButton) protected Button mLogoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ButterKnife.inject(this);
-
         setActionBarIcon(R.drawable.ic_ab_drawer);
 
-        bus = BusProvider.getInstance();
-
-
+        if (!ImgurAuthorization.getInstance().isLoggedIn()) {
+            //hide logout button if user is not logged in.
+            mLogoutButton.setVisibility(View.GONE);
+        }
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
