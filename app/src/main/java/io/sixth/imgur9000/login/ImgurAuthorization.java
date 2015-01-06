@@ -10,8 +10,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
-import io.sixth.imgur9000.util.App;
-import io.sixth.imgur9000.util.Constants;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
@@ -24,6 +22,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import io.sixth.imgur9000.util.App;
+import io.sixth.imgur9000.util.Constants;
 
 public class ImgurAuthorization {
 

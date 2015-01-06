@@ -1,5 +1,6 @@
 package io.sixth.imgur9000.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -17,6 +18,7 @@ import butterknife.OnClick;
 import io.sixth.imgur9000.R;
 import io.sixth.imgur9000.api.Imgur;
 import io.sixth.imgur9000.login.ImgurAuthorization;
+import io.sixth.imgur9000.login.LoginActivity;
 import io.sixth.imgur9000.util.App;
 import io.sixth.imgur9000.util.BaseActivity;
 import io.sixth.imgur9000.util.BusProvider;
@@ -36,11 +38,6 @@ public class HeroActivity extends BaseActivity {
         ButterKnife.inject(this);
         setActionBarIcon(R.drawable.ic_ab_drawer);
 
-        if (!ImgurAuthorization.getInstance().isLoggedIn()) {
-            //hide logout button if user is not logged in.
-            mLogoutButton.setVisibility(View.GONE);
-        }
-
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new HeroFragment())
@@ -57,6 +54,10 @@ public class HeroActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         bus.register(this);
+        if (!ImgurAuthorization.getInstance().isLoggedIn()) {
+            //hide logout button if user is not logged in.
+            mLogoutButton.setVisibility(View.GONE);
+        }
         Imgur.loadDefaultGallery();
     }
 
@@ -73,6 +74,16 @@ public class HeroActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @OnClick(R.id.loginButton) protected void startLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.logoutButton) protected void logoutImgur() {
+        ImgurAuthorization.getInstance().logout();
+        this.recreate();
     }
 
 }

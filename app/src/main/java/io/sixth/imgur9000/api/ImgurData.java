@@ -1,8 +1,6 @@
 
 package io.sixth.imgur9000.api;
 
-import java.util.List;
-
 public class ImgurData {
     private Number account_id;
     private String account_url;

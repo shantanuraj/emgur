@@ -8,11 +8,11 @@ import android.widget.FrameLayout;
 
 import com.squareup.otto.Bus;
 
-import io.sixth.imgur9000.util.BusProvider;
-import io.sixth.imgur9000.util.Constants;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import io.sixth.imgur9000.util.BusProvider;
+import io.sixth.imgur9000.util.Constants;
 
 public class LoginActivity extends Activity {
 

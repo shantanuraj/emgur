@@ -5,8 +5,8 @@ package io.sixth.imgur9000.login;
  */
 
 import android.os.AsyncTask;
-import android.util.Log;
 import android.text.TextUtils;
+import android.util.Log;
 
 public class RefreshAccessTokenTask extends AsyncTask<Void, Void, String> {
 
