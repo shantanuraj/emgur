@@ -35,6 +35,8 @@ public class HeroActivity extends BaseActivity {
 
         bus = BusProvider.getInstance();
 
+
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new HeroFragment())
