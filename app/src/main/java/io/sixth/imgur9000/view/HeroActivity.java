@@ -62,6 +62,7 @@ public class HeroActivity extends BaseActivity {
     }
 
     @Subscribe public void loginCompleted(String status) {
+        this.recreate();
         Snackbar.with(App.getAppContext()).text(status).show(this);
     }
 
