@@ -1,6 +1,10 @@
 package io.sixth.imgur9000.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.view.View;
 
 import com.squareup.otto.Bus;
 import com.squareup.picasso.Picasso;
@@ -32,7 +36,7 @@ public class DetailActivity extends BaseActivity {
         int position = (int) getIntent().getExtras().get(CardViewHolder.KEY);
         mImgurData = GalleryAdapter.getData(position);
         Picasso.with(App.getAppContext()).load(mImgurData.getLink()).into(mDetailImage);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override

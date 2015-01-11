@@ -1,5 +1,7 @@
 package io.sixth.imgur9000.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -27,6 +29,7 @@ import io.sixth.imgur9000.util.BusProvider;
 public class HeroActivity extends BaseActivity {
 
     private static Bus bus = BusProvider.getInstance();
+    private static Activity activity;
 
     @InjectView(R.id.drawer) protected DrawerLayout mDrawer;
     @InjectView(R.id.logoutButton) protected Button mLogoutButton;
@@ -53,6 +56,7 @@ public class HeroActivity extends BaseActivity {
                     .commit();
         }
 
+        activity = this;
         mDrawer.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
@@ -85,6 +89,10 @@ public class HeroActivity extends BaseActivity {
     @OnClick(R.id.logoutButton) protected void logoutImgur() {
         ImgurAuthorization.getInstance().logout();
         this.recreate();
+    }
+
+    public static Activity getHeroActivity() {
+        return activity;
     }
 
 }

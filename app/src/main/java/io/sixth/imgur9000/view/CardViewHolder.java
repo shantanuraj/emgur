@@ -1,6 +1,8 @@
 package io.sixth.imgur9000.view;
 
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     private final ImageView cardBackground;
 
     public static final String KEY = "POSITION";
+    public static final String EXTRA_IMAGE = "DetailActivity:image";
 
     public CardViewHolder(View v) {
         super(v);
@@ -34,8 +37,11 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     @Override
     public void onClick(View v) {
+        ActivityOptionsCompat options =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        HeroActivity.getHeroActivity(), v, EXTRA_IMAGE);
         Intent intent = new Intent(v.getContext(), DetailActivity.class);
         intent.putExtra(KEY, getPosition());
-        v.getContext().startActivity(intent);
+        ActivityCompat.startActivity(HeroActivity.getHeroActivity(), intent, options.toBundle());
     }
 }
