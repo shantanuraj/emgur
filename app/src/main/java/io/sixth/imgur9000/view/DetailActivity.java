@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.view.View;
+import android.widget.TextView;
 
 import com.squareup.otto.Bus;
 import com.squareup.picasso.Picasso;
@@ -29,6 +30,9 @@ public class DetailActivity extends BaseActivity {
     @InjectView(R.id.detail_image)
     protected ImgurImageView mDetailImage;
 
+    @InjectView(R.id.image_title)
+    protected TextView mImageTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +41,16 @@ public class DetailActivity extends BaseActivity {
         mImgurData = GalleryAdapter.getData(position);
         Picasso.with(App.getAppContext()).load(mImgurData.getLink()).into(mDetailImage);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setUpView();
     }
 
     @Override
     protected int getLayoutResource() {
         return R.layout.activity_detail;
+    }
+
+    private void setUpView() {
+        mImageTitle.setText(mImgurData.getTitle());
     }
 
 }

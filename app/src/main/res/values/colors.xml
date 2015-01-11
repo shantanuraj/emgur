@@ -5,6 +5,8 @@
     <color name="statusBarColor">@android:color/transparent</color>
     <color name="toolbarColor">#11000000</color>
 
+    <color name="fragment_backround">#53BBB4</color>
+
     <color name="banner_background">#4E6C90</color>
     <color name="banner_fragment_background">#3F74B2</color>
 
