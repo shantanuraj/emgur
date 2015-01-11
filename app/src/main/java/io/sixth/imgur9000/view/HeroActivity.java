@@ -37,8 +37,17 @@ public class HeroActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        bus.register(this);
+
         ButterKnife.inject(this);
         setActionBarIcon(R.drawable.ic_ab_drawer);
+
+        if (!ImgurAuthorization.getInstance().isLoggedIn()) {
+            //hide logout button if user is not logged in.
+            mLogoutButton.setVisibility(View.GONE);
+        }
+
+        Imgur.loadDefaultGallery();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -47,25 +56,11 @@ public class HeroActivity extends BaseActivity {
         }
 
         mDrawer.setStatusBarBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-//        if (Build.VERSION.SDK_INT >= 19) {
-//            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-//        }
     }
 
     @Override
     protected int getLayoutResource() {
         return R.layout.activity_hero;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        bus.register(this);
-        if (!ImgurAuthorization.getInstance().isLoggedIn()) {
-            //hide logout button if user is not logged in.
-            mLogoutButton.setVisibility(View.GONE);
-        }
-        Imgur.loadDefaultGallery();
     }
 
     @Subscribe public void loginCompleted(String status) {

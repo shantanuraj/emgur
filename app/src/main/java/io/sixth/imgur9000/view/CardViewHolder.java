@@ -40,7 +40,7 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        Log.d(App.TAG, "Element " + mImgurData.getTitle() + " clicked.");
-        Intent intent = new Intent();
+        Intent intent = new Intent(v.getContext(), DetailActivity.class);
+        v.getContext().startActivity(intent);
     }
 }
