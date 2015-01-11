@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.sixth.imgur9000;
+package io.sixth.imgur9000.util;
 
 import android.content.Context;
 import android.content.res.TypedArray;

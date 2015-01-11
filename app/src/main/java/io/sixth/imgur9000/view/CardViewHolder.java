@@ -2,14 +2,11 @@ package io.sixth.imgur9000.view;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import io.sixth.imgur9000.R;
-import io.sixth.imgur9000.api.ImgurData;
-import io.sixth.imgur9000.util.App;
 
 /**
  * Created by walle on 04/01/15.
@@ -17,7 +14,8 @@ import io.sixth.imgur9000.util.App;
 public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private final TextView cardTitle;
     private final ImageView cardBackground;
-    private ImgurData mImgurData;
+
+    public static final String KEY = "POSITION";
 
     public CardViewHolder(View v) {
         super(v);
@@ -34,13 +32,10 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         return cardBackground;
     }
 
-    public void setImgurData(ImgurData imgurData) {
-        mImgurData = imgurData;
-    }
-
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(v.getContext(), DetailActivity.class);
+        intent.putExtra(KEY, getPosition());
         v.getContext().startActivity(intent);
     }
 }

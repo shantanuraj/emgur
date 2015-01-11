@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<io.sixth.imgur9000.ScrimInsetsFrameLayout
+<io.sixth.imgur9000.util.ScrimInsetsFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrimInsetsFrameLayout"
@@ -43,4 +43,4 @@
             android:id="@+id/logoutButton"/>
     </RelativeLayout>
 
-</io.sixth.imgur9000.ScrimInsetsFrameLayout>
+</io.sixth.imgur9000.util.ScrimInsetsFrameLayout>

@@ -21,7 +21,7 @@ import io.sixth.imgur9000.util.App;
 
 public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
-    private ArrayList<ImgurData> mDataSet;
+    private static ArrayList<ImgurData> mDataSet;
 
     public GalleryAdapter(ArrayList<ImgurData> dataSet) {
         mDataSet = dataSet;
@@ -43,7 +43,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
         Log.d(App.TAG, "Element " + position + " set.");
         viewHolder.getCardTitle().setText(mDataSet.get(position).getTitle());
-        viewHolder.setImgurData(mDataSet.get(position));
     }
 
     @Override
@@ -51,5 +50,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<CardViewHolder> {
         if (mDataSet == null)
             return 0;
         return mDataSet.size();
+    }
+
+    public static ImgurData getData(int position) {
+        return mDataSet.get(position);
     }
 }
