@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
- Copyright 2014 The Android Open Source Project
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+<com.daimajia.swipe.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/card_height"
+    android:gravity="center_vertical">
+    <!-- Bottom View Start-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/bluegrey700"
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="160dp"
+        android:weightSum="1"
+        android:layout_height="match_parent">
+        <!--What you want to show-->
+    </LinearLayout>
+    <!-- Bottom View End-->
 
-     http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-             android:layout_width="match_parent"
-             android:layout_height="@dimen/card_height"
-             android:gravity="center_vertical">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/card_height"
-        android:foreground="@drawable/photo_protection_background">
-
-        <android.support.v7.widget.CardView
+    <!-- Surface View Start -->
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="@dimen/card_height"
+                 android:gravity="center_vertical">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imgurCard"
-            card_view:cardBackgroundColor="@color/cardview_dark_background">
-            <ImageView
-                android:scaleType="centerCrop"
-                android:id="@+id/cardBackground"
+            android:layout_height="@dimen/card_height"
+            android:foreground="@drawable/photo_protection_background">
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </android.support.v7.widget.CardView>
+                android:layout_height="match_parent"
+                android:id="@+id/imgurCard"
+                card_view:cardBackgroundColor="@color/cardview_dark_background">
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:id="@+id/cardBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </android.support.v7.widget.CardView>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/cardTitle"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="22sp"
+            android:maxLines="@integer/max_title_lines"/>
 
     </FrameLayout>
-
-    <TextView
-        android:id="@+id/cardTitle"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginRight="@dimen/text_margin"
-        android:layout_marginBottom="@dimen/text_margin"
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="22sp"
-        android:maxLines="@integer/max_title_lines"/>
-
-</FrameLayout>
+    <!-- Surface View End -->
+</com.daimajia.swipe.SwipeLayout>
