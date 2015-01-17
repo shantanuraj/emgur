@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import io.sixth.imgur9000.R;
+import io.sixth.imgur9000.util.App;
 
 /**
  * Created by walle on 04/01/15.

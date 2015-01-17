@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,33 +25,20 @@ import io.sixth.imgur9000.util.ImgurImageView;
  */
 public class DetailActivity extends BaseActivity {
 
-    private static Bus bus = BusProvider.getInstance();
-    private ImgurData mImgurData;
-
-    @InjectView(R.id.detail_image)
-    protected ImgurImageView mDetailImage;
-
-    @InjectView(R.id.image_title)
-    protected TextView mImageTitle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.inject(this);
-        int position = (int) getIntent().getExtras().get(CardViewHolder.KEY);
-        mImgurData = GalleryAdapter.getData(position);
-        Picasso.with(App.getAppContext()).load(mImgurData.getLink()).into(mDetailImage);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        setUpView();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new DetailFragment())
+                    .commit();
+        }
     }
 
     @Override
     protected int getLayoutResource() {
         return R.layout.activity_detail;
-    }
-
-    private void setUpView() {
-        mImageTitle.setText(mImgurData.getTitle());
     }
 
 }
