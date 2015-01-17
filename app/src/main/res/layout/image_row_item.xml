@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.daimajia.swipe.SwipeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height"
     android:gravity="center_vertical">
-    <!-- Bottom View Start-->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:background="@color/bluegrey700"
-        android:id="@+id/bottom_wrapper"
-        android:layout_width="160dp"
-        android:weightSum="1"
-        android:layout_height="match_parent">
-        <!--What you want to show-->
-    </LinearLayout>
-    <!-- Bottom View End-->
 
-    <!-- Surface View Start -->
-    <FrameLayout android:layout_width="match_parent"
-                 android:layout_height="@dimen/card_height"
-                 android:gravity="center_vertical">
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/card_height"
@@ -53,7 +38,4 @@
             android:fontFamily="sans-serif-condensed"
             android:textSize="22sp"
             android:maxLines="@integer/max_title_lines"/>
-
-    </FrameLayout>
-    <!-- Surface View End -->
-</com.daimajia.swipe.SwipeLayout>
+</FrameLayout>
