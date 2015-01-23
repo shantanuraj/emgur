@@ -10,4 +10,9 @@
         <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
         <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
     </style>
+    <style name="AppTheme.OpaqueToolbar">
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>s
+    </style>
 </resources>
