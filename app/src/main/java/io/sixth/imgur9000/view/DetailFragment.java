@@ -34,8 +34,7 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
         ButterKnife.inject(this, rootView);
-        int position = (int) getActivity().getIntent().getExtras().get(CardViewHolder.KEY);
-        mImgurData = GalleryAdapter.getData(position);
+        mImgurData = (ImgurData) getActivity().getIntent().getExtras().get(CardViewHolder.KEY);
         setUpView();
         return rootView;
     }

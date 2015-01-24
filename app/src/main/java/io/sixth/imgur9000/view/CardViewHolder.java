@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import io.sixth.imgur9000.R;
+import io.sixth.imgur9000.api.ImgurData;
 import io.sixth.imgur9000.util.App;
 
 /**
@@ -19,7 +20,9 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     private final TextView cardTitle;
     private final ImageView cardBackground;
 
-    public static final String KEY = "POSITION";
+    private ImgurData mImgurData;
+
+    public static final String KEY = "ImgurData";
     public static final String EXTRA_IMAGE = "DetailActivity:image";
 
     public CardViewHolder(View v) {
@@ -37,13 +40,17 @@ public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         return cardBackground;
     }
 
+    public void setImgurData(ImgurData imgurData) {
+        mImgurData = imgurData;
+    }
+
     @Override
     public void onClick(View v) {
         ActivityOptionsCompat options =
                 ActivityOptionsCompat.makeSceneTransitionAnimation(
                         HeroActivity.getHeroActivity(), v, EXTRA_IMAGE);
         Intent intent = new Intent(v.getContext(), DetailActivity.class);
-        intent.putExtra(KEY, getPosition());
+        intent.putExtra(KEY, mImgurData);
         ActivityCompat.startActivity(HeroActivity.getHeroActivity(), intent, options.toBundle());
     }
 }
